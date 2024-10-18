@@ -1,0 +1,119 @@
+@charset "utf-8";
+
+/*공통*/
+* {
+    margin:0; padding:0; box-sizing: border-box;
+}
+html,body {
+    font:10pt/180% "나눔고딕", '맑은 고딕', '돋움'; color:#333;
+}
+img {
+    display: block; max-width: 100%;
+}
+a {color:#333; text-decoration: none;}
+
+#layout {
+    max-width:1200px; margin:auto;
+}
+
+/*상단*/
+header {
+    height:110px; background: black; display: flex; /* align-items: center; */
+    font-weight: bold; position: relative;
+}
+
+/*로고*/
+header h1 {
+    padding-top:15px; padding-left: 15px;
+    position: absolute; z-index: 10;
+}
+
+/*메뉴*/
+header ul {
+    flex:1; list-style: none; display: flex; margin-top:70px;
+    position: relative; z-index: 1;
+    color: white;
+    padding-left: 500px;
+    background: rgba(0,0,0, 0.85);
+    height: 30px;
+    overflow: hidden;
+    transition: height 0.5s;
+}
+header li {flex:1; text-align: center;}
+header ul a {padding: 5px; color: white;}
+
+
+/*메인메뉴*/
+header ul:hover {height:175px;}
+header li:hover >a {color: red;}
+
+
+/*서브메뉴*/
+header nav {overflow: hidden; transition:height 0.5s; }
+header nav a {display:block;}
+header nav a:nth-of-type(1) {margin-top: 10px;}
+header nav a:hover {color:gold;}
+
+
+/******슬라이드*******/
+#slide {position: relative; margin-top: 40px;}
+#slide img {transition: opacity 1.5s;}
+#slide img:not(:first-child) {position:absolute; top:0;}
+
+
+/******메인************/
+main {display: flex; margin-top:50px;}
+
+#notice {flex:1; margin-right: 30px;}
+#notice h3 {
+    display: inline-block;  border: 1px solid red;
+    color: red; padding: 3px; margin-bottom: 20px;
+}
+#notice span {float:right;}
+#notice li {border-bottom:1px dashed #777;}
+#notice li:hover,
+#notice li:hover a{color: red;}
+
+/*공지사항*/
+#notice ul {list-style-position: inside; padding:5px 0 0 5px; list-style: none;}
+
+/*갤러리*/
+#gallery {flex: 1; margin-right: 30px;}
+#gallery div {display: flex; justify-content: space-around;}
+#gallery h3 {
+    display: inline-block;  border: 1px solid red;
+    color: red; padding: 3px;  margin-bottom: 20px;
+}
+
+
+#quick {flex:1; display: flex;}
+#quick h3 {display: none;}
+#quick a {width: auto; align-content: end;}
+#quick img {bottom: 0;}
+
+
+/************하단 **************/
+footer {display: flex; margin-top:40px; background: #e6e6e6; padding:20px; align-items: center; height: 100px;}
+footer div {flex:1; }
+
+footer div div {display: flex;}
+footer div div span:not(:last-of-type)::after {
+    content: "|"; padding: 0 5px;
+    color: #999;
+}
+
+
+
+/************공지사항 **************/
+#popup {
+    position: fixed; top:0; left:0; background: rgba(0,0,0, 0.9);
+    width:100%; height:100vh; display: none;
+}
+#popup section {
+    background:white; width:400px; border-radius:10px; padding:20px;
+    margin:20vh auto; min-height:40vh;
+    position: relative;
+}
+#popup section h4 {background: black; color: white; text-align: center; margin-bottom: 10px; padding: 5px; font-size: 1.2rem;}
+#popup section img {margin-bottom: 20px;}
+#popup section button {position: absolute; right:20px; bottom:20px; }
